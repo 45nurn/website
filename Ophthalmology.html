@@ -1,0 +1,968 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ophthalmology Services | VisionCare Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #5e35b1;
+            --primary-dark: #4527a0;
+            --primary-light: #7e57c2;
+            --secondary: #ffc107;
+            --accent: #e91e63;
+            --light-bg: #f9f7ff;
+            --dark-text: #2c3e50;
+            --light-text: #f5f5f5;
+            --header-bg: #005b96;
+            --nav-bg: #003d66;
+            --emergency: #e31837;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: #7fcdff;
+        }
+        
+        .emergency-contact {
+            background-color: var(--emergency);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .emergency-contact i {
+            margin-right: 8px;
+        }
+        
+        /* Navigation Menu */
+        nav {
+            background-color: var(--nav-bg);
+        }
+        
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .menu-bar {
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu-bar li {
+            position: relative;
+        }
+        
+        .menu-bar li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .menu-bar li a:hover {
+            background-color: #0077cc;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            border-top: 3px solid #0077cc;
+        }
+        
+        .dropdown-menu li a {
+            color: #333;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-menu li a:hover {
+            background-color: #f0f7ff;
+            color: #005b96;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .menu-bar li a.active {
+            background-color: #0077cc;
+            border-bottom: 3px solid #7fcdff;
+        }
+        
+        /* Ophthalmology Hero Section */
+        .ophthalmology-hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1505275350441-83dcda8eeef5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumb a {
+            color: #7fcdff;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+            color: #ccc;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(94, 53, 177, 0.4);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(94, 53, 177, 0.5);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Ophthalmology Services Section */
+        .services-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 30px auto 0;
+            font-size: 18px;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border-top: 5px solid var(--primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .service-content p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .service-content ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .service-content ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-content ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .service-content ul li i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* Ophthalmology Team Section */
+        .team-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f1ff, #e8e3ff);
+        }
+        
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-img {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 25px;
+        }
+        
+        .team-info h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
+        
+        .team-info .position {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .team-info p {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Technology Section */
+        .technology-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .tech-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tech-card {
+            background: linear-gradient(135deg, #f5f1ff, #e8e3ff);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border: 1px solid #e0d6ff;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-card i {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .tech-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 24px;
+        }
+        
+        .tech-card p {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .testimonial-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .testimonial-container i {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 50px;
+            color: var(--secondary);
+            opacity: 0.7;
+        }
+        
+        .testimonial {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 22px;
+            line-height: 1.8;
+        }
+        
+        .patient {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        
+        .condition {
+            font-style: italic;
+            font-size: 16px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        /* Appointment Banner */
+        .appointment-banner {
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 70px 0;
+        }
+        
+        .appointment-banner h2 {
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+        
+        .appointment-banner p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #003d66;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 25px;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #7fcdff;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li i {
+            margin-right: 12px;
+            color: #7fcdff;
+            font-size: 18px;
+        }
+        
+        .footer-column ul li a {
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #7fcdff;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 16px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 40px;
+            }
+            
+            .service-card, .team-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+            
+            .menu-bar {
+                flex-direction: column;
+            }
+            
+            .menu-bar li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+            }
+            
+            .ophthalmology-hero {
+                height: 450px;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .btn {
+                display: block;
+                width: 90%;
+                max-width: 300px;
+                margin: 15px auto;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .appointment-banner h2 {
+                font-size: 30px;
+            }
+            
+            .appointment-banner p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Emergency Contact -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/2969/2969398.png" alt="VisionCare Hospital Logo">
+                <div class="logo-text">Vision<span>Care</span> Hospital</div>
+            </div>
+            <div class="emergency-contact">
+                <i class="fas fa-phone-alt"></i>
+                Emergency: (123) 456-7890
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu Bar -->
+      <nav>
+        <div class="nav-container">
+            <ul class="menu-bar">
+               <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active"><i class="fas fa-procedures"></i> Services <i class="fas fa-chevron-down"></i></a>
+                   <ul class="dropdown-menu">
+                        <li><a href="diology.html"><i class="fas fa-heartbeat"></i> Cardiology</a></li>
+                        <li><a href="nuirologyj.html"><i class="fas fa-brain"></i> Neurology</a></li>
+                        <li><a href="Orthopedics.html"><i class="fas fa-bone"></i> Orthopedics</a></li>
+                        <li><a href="Pediatrics.html"><i class="fas fa-baby"></i> Pediatrics</a></li>
+                        <li><a href="Ophthalmology.html"><i class="fas fa-eye"></i> Ophthalmology</a></li>
+                    </ul>
+                </li>
+                </li>
+                <li><a href="Doctors.html"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li><a href="appointment.html"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Ophthalmology Hero Section -->
+    <section class="ophthalmology-hero">
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="#">Home</a>
+                <span>/</span>
+                <a href="#">Services</a>
+                <span>/</span>
+                <a href="#">Ophthalmology</a>
+            </div>
+            <h1>Advanced Eye Care Services</h1>
+            <p>Experience world-class vision care with our cutting-edge technology and expert ophthalmologists dedicated to preserving and enhancing your sight</p>
+            <a href="#" class="btn">Book an Appointment</a>
+            <a href="#" class="btn btn-outline">Meet Our Specialists</a>
+        </div>
+    </section>
+    
+    <!-- Ophthalmology Services Section -->
+    <section class="services-section">
+        <div class="section-title">
+            <h2>Our Ophthalmology Services</h2>
+            <p>Comprehensive eye care solutions tailored to your vision needs</p>
+        </div>
+        
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Laser Vision Correction">
+                </div>
+                <div class="service-content">
+                    <h3>Laser Vision Correction</h3>
+                    <p>Freedom from glasses and contacts with our advanced laser eye surgery procedures.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> LASIK and PRK procedures</li>
+                        <li><i class="fas fa-check-circle"></i> Custom wavefront technology</li>
+                        <li><i class="fas fa-check-circle"></i> SMILE minimally invasive surgery</li>
+                        <li><i class="fas fa-check-circle"></i> Comprehensive pre-screening</li>
+                        <li><i class="fas fa-check-circle"></i> Rapid recovery with minimal discomfort</li>
+                    </ul>
+                    <a href="#" class="btn" style="background-color: var(--primary);">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1505275350441-83dcda8eeef5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Cataract Surgery">
+                </div>
+                <div class="service-content">
+                    <h3>Cataract Surgery</h3>
+                    <p>Restore clear vision with our advanced cataract removal and premium lens implantation.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Laser-assisted surgery</li>
+                        <li><i class="fas fa-check-circle"></i> Multifocal and toric lens options</li>
+                        <li><i class="fas fa-check-circle"></i> Same-day procedure</li>
+                        <li><i class="fas fa-check-circle"></i> Minimally invasive techniques</li>
+                        <li><i class="fas fa-check-circle"></i> Rapid visual recovery</li>
+                    </ul>
+                    <a href="#" class="btn" style="background-color: var(--primary);">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Retinal Care">
+                </div>
+                <div class="service-content">
+                    <h3>Retinal Care</h3>
+                    <p>Specialized diagnosis and treatment for retinal diseases and conditions.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Diabetic retinopathy management</li>
+                        <li><i class="fas fa-check-circle"></i> Macular degeneration treatment</li>
+                        <li><i class="fas fa-check-circle"></i> Retinal detachment surgery</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced retinal imaging</li>
+                        <li><i class="fas fa-check-circle"></i> Intravitreal injections</li>
+                    </ul>
+                    <a href="#" class="btn" style="background-color: var(--primary);">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ophthalmology Team Section -->
+    <section class="team-section">
+        <div class="section-title">
+            <h2>Our Ophthalmology Team</h2>
+            <p>Meet our board-certified ophthalmologists and eye surgeons</p>
+        </div>
+        
+        <div class="team-container">
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. James Wilson">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. James Wilson</h3>
+                    <div class="position">Cataract & Refractive Surgeon</div>
+                    <p>Pioneer in premium lens implants and laser vision correction with 20+ years experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Patricia Brown">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Patricia Brown</h3>
+                    <div class="position">Retina Specialist</div>
+                    <p>Expert in medical and surgical management of complex retinal diseases.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Sarah Chen">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Sarah Chen</h3>
+                    <div class="position">Cornea Specialist</div>
+                    <p>Expert in corneal transplants, dry eye treatment, and complex corneal diseases.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technology Section -->
+    <section class="technology-section">
+        <div class="section-title">
+            <h2>Advanced Diagnostic Technology</h2>
+            <p>State-of-the-art equipment for precise eye examinations and treatment</p>
+        </div>
+        
+        <div class="tech-container">
+            <div class="tech-card">
+                <i class="fas fa-eye"></i>
+                <h3>OCT Imaging</h3>
+                <p>Optical Coherence Tomography provides detailed cross-sectional images of the retina for early detection of diseases like macular degeneration and glaucoma.</p>
+            </div>
+            
+            <div class="tech-card">
+                <i class="fas fa-camera"></i>
+                <h3>Retinal Photography</h3>
+                <p>Ultra-widefield imaging captures 200° of the retina in a single image, allowing comprehensive evaluation and documentation of retinal health.</p>
+            </div>
+            
+            <div class="tech-card">
+                <i class="fas fa-wave-square"></i>
+                <h3>Corneal Topography</h3>
+                <p>Advanced mapping of the corneal surface for precise planning of refractive surgery and diagnosis of corneal diseases.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonial-container">
+            <i class="fas fa-quote-left"></i>
+            <div class="testimonial">
+                <p>"After years of struggling with thick glasses, I decided to have LASIK surgery at VisionCare. The procedure was quick and painless, and the results have been life-changing. I now have 20/20 vision and couldn't be happier!"</p>
+                <div class="patient">- Jennifer Martinez</div>
+                <div class="condition">LASIK Patient</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Appointment Banner -->
+    <section class="appointment-banner">
+        <h2>Schedule Your Comprehensive Eye Exam</h2>
+        <p>Protect your vision with our advanced diagnostic technology and expert care</p>
+        <a href="#" class="btn" style="background-color: var(--secondary); color: #333;">Book Appointment</a>
+        <a href="#" class="btn btn-outline">Contact Us</a>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About VisionCare</h3>
+                <p>VisionCare Hospital is a leading eye care center committed to delivering exceptional vision care with state-of-the-art facilities and compassionate specialists.</p>
+                <div class="social-links" style="justify-content: flex-start; margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Doctors</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Appointments</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Patient Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Vision Avenue, Medical District</li>
+                    <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> info@visioncarehospital.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+                    <li><i class="fas fa-calendar-check"></i> Saturday: 9:00 AM - 2:00 PM</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Emergency Contacts</h3>
+                <ul>
+                    <li><i class="fas fa-eye"></i> Eye Emergency: (555) 789-0123</li>
+                    <li><i class="fas fa-ambulance"></i> Ambulance: 911</li>
+                    <li><i class="fas fa-calendar-alt"></i> 24/7 Emergency Department</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 VisionCare Hospital. All Rights Reserved. | Dedicated to Vision Health and Wellness</p>
+        </div>
+    </footer>
+</body>
+</html>

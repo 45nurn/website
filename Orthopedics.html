@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthopedics Services | BoneHealth Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #ff9800;
+            --accent: #d32f2f;
+            --light-bg: #f8f9fa;
+            --light-green: #e8f5e9;
+            --light-orange: #fff3e0;
+            --text-dark: #263238;
+            --text-light: #546e7a;
+            --header-bg: #005b96;
+            --nav-bg: #003d66;
+            --emergency: #e31837;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: #7fcdff;
+        }
+        
+        .emergency-contact {
+            background-color: var(--emergency);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .emergency-contact i {
+            margin-right: 8px;
+        }
+        
+        /* Navigation Menu */
+        nav {
+            background-color: var(--nav-bg);
+        }
+        
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .menu-bar {
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu-bar li {
+            position: relative;
+        }
+        
+        .menu-bar li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .menu-bar li a:hover {
+            background-color: #0077cc;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            border-top: 3px solid #0077cc;
+        }
+        
+        .dropdown-menu li a {
+            color: #333;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-menu li a:hover {
+            background-color: #f0f7ff;
+            color: #005b96;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .menu-bar li a.active {
+            background-color: #0077cc;
+            border-bottom: 3px solid #7fcdff;
+        }
+        
+        /* Orthopedics Hero Section */
+        .orthopedics-hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumb a {
+            color: #7fcdff;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+            color: #ccc;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: var(--secondary);
+            color: #333;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin-right: 15px;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+        }
+        
+        .btn:hover {
+            background-color: #f57c00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.5);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Orthopedics Services Section */
+        .services-section {
+            padding: 80px 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 30px auto 0;
+            font-size: 18px;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .service-content p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .service-content ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .service-content ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-content ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .service-content ul li i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* Orthopedics Team Section */
+        .team-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-green), #dcedc8);
+            position: relative;
+        }
+        
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-img {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .team-card:hover .team-img img {
+            transform: scale(1.05);
+        }
+        
+        .team-info {
+            padding: 25px;
+        }
+        
+        .team-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
+        
+        .team-info .position {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .team-info p {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Technology Section */
+        .technology-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .tech-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tech-card {
+            background: linear-gradient(135deg, var(--light-orange), #ffe0b2);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-card i {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .tech-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            font-size: 24px;
+        }
+        
+        .tech-card p {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .testimonial-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .testimonial-container i {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 50px;
+            color: var(--secondary);
+            opacity: 0.7;
+        }
+        
+        .testimonial {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 22px;
+            line-height: 1.8;
+        }
+        
+        .patient {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        
+        .condition {
+            font-style: italic;
+            font-size: 16px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        /* Appointment Banner */
+        .appointment-banner {
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 70px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .appointment-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,0 50,100 100,100 L100,0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 100% 100%;
+            z-index: 1;
+        }
+        
+        .appointment-banner h2 {
+            font-size: 38px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .appointment-banner p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #003d66;
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 25px;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #7fcdff;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li i {
+            margin-right: 12px;
+            color: #7fcdff;
+            font-size: 18px;
+            min-width: 24px;
+        }
+        
+        .footer-column ul li a {
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #7fcdff;
+            padding-left: 5px;
+        }
+        
+        .social-links-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links-footer a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links-footer a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-bg-element {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            opacity: 0.1;
+            font-size: 200px;
+            z-index: 1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 40px;
+            }
+            
+            .service-card, .team-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+            
+            .menu-bar {
+                flex-direction: column;
+            }
+            
+            .menu-bar li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+            }
+            
+            .orthopedics-hero {
+                height: 450px;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .btn {
+                display: block;
+                width: 90%;
+                max-width: 300px;
+                margin: 15px auto;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .appointment-banner h2 {
+                font-size: 30px;
+            }
+            
+            .appointment-banner p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Emergency Contact -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/2969/2969398.png" alt="BoneHealth Hospital Logo">
+                <div class="logo-text">Bone<span>Health</span> Hospital</div>
+            </div>
+            <div class="emergency-contact">
+                <i class="fas fa-phone-alt"></i>
+                Emergency: (123) 456-7890
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu Bar -->
+        <nav>
+        <div class="nav-container">
+            <ul class="menu-bar">
+             <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active"><i class="fas fa-procedures"></i> Services <i class="fas fa-chevron-down"></i></a>
+                   <ul class="dropdown-menu">
+                        <li><a href="diology.html"><i class="fas fa-heartbeat"></i> Cardiology</a></li>
+                        <li><a href="nuirologyj.html"><i class="fas fa-brain"></i> Neurology</a></li>
+                        <li><a href="Orthopedics.html"><i class="fas fa-bone"></i> Orthopedics</a></li>
+                        <li><a href="Pediatrics.html"><i class="fas fa-baby"></i> Pediatrics</a></li>
+                        <li><a href="Ophthalmology.html"><i class="fas fa-eye"></i> Ophthalmology</a></li>
+                    </ul>
+                </li>
+                </li>
+                <li><a href="Doctors.html"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li><a href="appointment.html"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Orthopedics Hero Section -->
+    <section class="orthopedics-hero">
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="#">Home</a>
+                <span>/</span>
+                <a href="#">Services</a>
+                <span>/</span>
+                <a href="#">Orthopedics</a>
+            </div>
+            <h1>Advanced Orthopedic Care</h1>
+            <p>Restoring mobility and improving quality of life through cutting-edge treatments and surgical techniques</p>
+            <a href="#" class="btn">Book an Appointment</a>
+            <a href="#" class="btn btn-outline">Meet Our Specialists</a>
+        </div>
+    </section>
+    
+    <!-- Orthopedics Services Section -->
+    <section class="services-section">
+        <div class="section-title">
+            <h2>Our Orthopedic Services</h2>
+            <p>Comprehensive solutions for musculoskeletal conditions and injuries</p>
+        </div>
+        
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Joint Replacement">
+                </div>
+                <div class="service-content">
+                    <h3>Joint Replacement Surgery</h3>
+                    <p>Advanced surgical solutions for hip, knee, and shoulder joint replacements.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Minimally invasive techniques</li>
+                        <li><i class="fas fa-check"></i> Robotic-assisted surgery</li>
+                        <li><i class="fas fa-check"></i> Custom joint implants</li>
+                        <li><i class="fas fa-check"></i> Rapid recovery protocols</li>
+                        <li><i class="fas fa-check"></i> Comprehensive rehabilitation</li>
+                    </ul>
+                    <a href="#" class="btn" style="background-color: var(--primary); color: white;">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Sports Medicine">
+                </div>
+                <div class="service-content">
+                    <h3>Sports Medicine</h3>
+                    <p>Comprehensive care for sports-related injuries and performance enhancement.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> ACL reconstruction</li>
+                        <li><i class="fas fa-check"></i> Arthroscopic surgery</li>
+                        <li><i class="fas fa-check"></i> Concussion management</li>
+                        <li><i class="fas fa-check"></i> Performance optimization</li>
+                        <li><i class="fas fa-check"></i> Injury prevention programs</li>
+                    </ul>
+                    <a href="#" class="btn" style="background-color: var(--primary); color: white;">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Spine Care">
+                </div>
+                <div class="service-content">
+                    <h3>Spine Care</h3>
+                    <p>Advanced diagnostics and treatment for spinal conditions and back pain.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Spinal decompression</li>
+                        <li><i class="fas fa-check"></i> Minimally invasive fusion</li>
+                        <li><i class="fas fa-check"></i> Disc replacement</li>
+                        <li><i class="fas fa-check"></i> Scoliosis correction</li>
+                        <li><i class="fas fa-check"></i> Non-surgical treatments</li>
+                    </ul>
+                    <a href="#" class="btn" style="background-color: var(--primary); color: white;">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Orthopedics Team Section -->
+    <section class="team-section">
+        <div class="section-title">
+            <h2>Our Orthopedic Team</h2>
+            <p>Meet our board-certified orthopedic surgeons and specialists</p>
+        </div>
+        
+        <div class="team-container">
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Sarah Johnson">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Sarah Johnson</h3>
+                    <div class="position">Joint Replacement Specialist</div>
+                    <p>20+ years experience in hip and knee replacement surgery with rapid recovery protocols.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Michael Chen">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Michael Chen</h3>
+                    <div class="position">Sports Medicine Surgeon</div>
+                    <p>Specializes in arthroscopic surgery and sports injury rehabilitation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Emily Rodriguez">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Emily Rodriguez</h3>
+                    <div class="position">Spine Surgeon</div>
+                    <p>Expert in minimally invasive spine surgery and complex spinal reconstruction.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1581595219319-5b8b3314f4d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Robert Williams">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Robert Williams</h3>
+                    <div class="position">Hand & Upper Extremity</div>
+                    <p>Specializes in complex hand, wrist, and elbow conditions and injuries.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technology Section -->
+    <section class="technology-section">
+        <div class="section-title">
+            <h2>Advanced Orthopedic Technology</h2>
+            <p>State-of-the-art equipment for precise diagnostics and treatment</p>
+        </div>
+        
+        <div class="tech-container">
+            <div class="tech-card">
+                <i class="fas fa-robot"></i>
+                <h3>Robotic-Assisted Surgery</h3>
+                <p>Precision-guided surgical systems for more accurate joint replacements and complex procedures.</p>
+            </div>
+            
+            <div class="tech-card">
+                <i class="fas fa-microscope"></i>
+                <h3>3D Imaging & Printing</h3>
+                <p>Advanced imaging for detailed anatomical visualization and custom implant creation.</p>
+            </div>
+            
+            <div class="tech-card">
+                <i class="fas fa-vr-cardboard"></i>
+                <h3>Virtual Reality Rehabilitation</h3>
+                <p>Immersive therapy programs to accelerate recovery and improve outcomes.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonial-container">
+            <i class="fas fa-quote-left"></i>
+            <div class="testimonial">
+                <p>"After my hip replacement surgery at BoneHealth, I was back to hiking in just 3 months. The entire orthopedic team provided exceptional care and support throughout my recovery journey. I've regained my mobility and quality of life!"</p>
+                <div class="patient">- Robert Thompson</div>
+                <div class="condition">Hip Replacement Patient</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Appointment Banner -->
+    <section class="appointment-banner">
+        <h2>Schedule Your Orthopedic Consultation</h2>
+        <p>Take the first step toward pain-free movement and improved quality of life</p>
+        <a href="#" class="btn" style="background-color: var(--secondary); color: #333;">Book Appointment</a>
+        <a href="#" class="btn btn-outline">Contact Us</a>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bg-element">
+            <i class="fas fa-bone"></i>
+        </div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About BoneHealth</h3>
+                <p>BoneHealth Hospital is a leading orthopedic center committed to delivering exceptional musculoskeletal care with state-of-the-art facilities and compassionate specialists.</p>
+                <div class="social-links-footer">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#">Home</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#">Services</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#">Orthopedics Department</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#">Appointments</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#">Patient Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Mobility Avenue, Medical District</li>
+                    <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> orthopedics@bonehealthhospital.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+                    <li><i class="fas fa-calendar-check"></i> Saturday: 9:00 AM - 2:00 PM</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Emergency Contacts</h3>
+                <ul>
+                    <li><i class="fas fa-ambulance"></i> Orthopedic Emergency: (555) 789-0123</li>
+                    <li><i class="fas fa-bone"></i> Fracture Care: (555) 234-5678</li>
+                    <li><i class="fas fa-calendar-alt"></i> 24/7 Emergency Department</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 BoneHealth Hospital. All Rights Reserved. | Restoring Mobility, Transforming Lives</p>
+        </div>
+    </footer>
+</body>
+</html>

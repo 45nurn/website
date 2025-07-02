@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Hospital - Quality Healthcare Services</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f9ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #005b96;
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: #7fcdff;
+        }
+        
+        .emergency-contact {
+            background-color: #e31837;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .emergency-contact i {
+            margin-right: 8px;
+        }
+        
+        /* Navigation Menu */
+        nav {
+            background-color: #003d66;
+        }
+        
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .menu-bar {
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu-bar li {
+            position: relative;
+        }
+        
+        .menu-bar li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .menu-bar li a:hover {
+            background-color: #0077cc;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            border-top: 3px solid #0077cc;
+        }
+        
+        .dropdown-menu li a {
+            color: #333;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-menu li a:hover {
+            background-color: #f0f7ff;
+            color: #005b96;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #e31837;
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #c5122f;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Quick Links Section */
+        .quick-links {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #005b96;
+        }
+        
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .link-card {
+            background-color: #f5f9ff;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid #005b96;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .link-card i {
+            font-size: 40px;
+            color: #005b96;
+            margin-bottom: 20px;
+        }
+        
+        .link-card h3 {
+            margin-bottom: 15px;
+            color: #003d66;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #003d66;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #7fcdff;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #7fcdff;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+          .team-section {
+            background-color: #e6f0ff;
+            padding: 60px 0;
+        }
+        
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .team-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 20px;
+        }
+        
+        .team-info h3 {
+            color: #4a6fa5;
+            margin-bottom: 5px;
+        }
+        
+        .team-info .position {
+            color: #e31837;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .team-info p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+            
+            .menu-bar {
+                flex-direction: column;
+            }
+            
+            .menu-bar li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .btn {
+                display: block;
+                width: 80%;
+                margin: 0 auto 15px;
+            }
+            
+            .btn-outline {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Logo and Emergency Contact -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50x50" alt="MediCare Hospital Logo">
+                <div class="logo-text">Medi<span>Care</span> Hospital</div>
+            </div>
+            <div class="emergency-contact">
+                <i class="fas fa-phone-alt"></i>
+                Emergency: 911
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu Bar -->
+      <nav>
+        <div class="nav-container">
+            <ul class="menu-bar">
+           <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active"><i class="fas fa-procedures"></i> Services <i class="fas fa-chevron-down"></i></a>
+                   <ul class="dropdown-menu">
+                        <li><a href="diology.html"><i class="fas fa-heartbeat"></i> Cardiology</a></li>
+                        <li><a href="nuirologyj.html"><i class="fas fa-brain"></i> Neurology</a></li>
+                        <li><a href="Orthopedics.html"><i class="fas fa-bone"></i> Orthopedics</a></li>
+                        <li><a href="Pediatrics.html"><i class="fas fa-baby"></i> Pediatrics</a></li>
+                        <li><a href="Ophthalmology.html"><i class="fas fa-eye"></i> Ophthalmology</a></li>
+                    </ul>
+                </li>
+                </li>
+                <li><a href="Doctors.html"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li><a href="appointment.html"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Quality Healthcare For Everyone</h1>
+            <p>MediCare Hospital provides world-class healthcare services with compassion and cutting-edge technology. Our team of specialists is dedicated to your well-being.</p>
+            <a href="appointment.html" class="btn">Book an Appointment</a>
+            <a href="service.html" class="btn btn-outline">Our Services</a>
+        </div>
+    </section>
+      <!-- Neurology Team Section -->
+    
+      <section class="team-section">
+        <div class="section-title">
+            <h2>Our Neurology Team</h2>
+            <p>Meet our board-certified neurologists and neurosurgeons</p>
+        </div>
+        
+        <div class="team-container">
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Sarah Johnson">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Sarah Johnson</h3>
+                    <div class="position">Chief of Neurology</div>
+                    <p>Board-certified neurologist with expertise in stroke care and neurocritical care.</p>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1618498082410-b4aa22193b38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Michael Chen">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Michael Chen</h3>
+                    <div class="position">Neurosurgeon</div>
+                    <p>Specializes in minimally invasive brain and spine surgery.</p>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Emily Rodriguez">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Emily Rodriguez</h3>
+                    <div class="position">Epileptologist</div>
+                    <p>Expert in seizure disorders and advanced epilepsy management.</p>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Robert Williams">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Robert Williams</h3>
+                    <div class="position">Movement Disorders Specialist</div>
+                    <p>Focuses on Parkinson's disease and deep brain stimulation therapy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+      <section class="team-section">
+        <div class="section-title">
+            <h2>Our Ophthalmology Team</h2>
+            <p>Meet our board-certified ophthalmologists and eye surgeons</p>
+        </div>
+        
+        <div class="team-container">
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. James Wilson">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. James Wilson</h3>
+                    <div class="position">Cataract & Refractive Surgeon</div>
+                    <p>Pioneer in premium lens implants and laser vision correction with 20+ years experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Patricia Brown">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Patricia Brown</h3>
+                    <div class="position">Retina Specialist</div>
+                    <p>Expert in medical and surgical management of complex retinal diseases.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Sarah Chen">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Sarah Chen</h3>
+                    <div class="position">Cornea Specialist</div>
+                    <p>Expert in corneal transplants, dry eye treatment, and complex corneal diseases.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <section class="team-section">
+        <div class="section-title">
+            <h2>Our Pediatric Team</h2>
+            <p>Meet our compassionate pediatricians and child specialists</p>
+        </div>
+        
+        <div class="team-container">
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Jennifer Lee">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Jennifer Lee</h3>
+                    <div class="position">Chief Pediatrician</div>
+                    <p>Specializes in newborn care and developmental pediatrics with 15 years of experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Robert Davis">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Robert Davis</h3>
+                    <div class="position">Pediatric Cardiologist</div>
+                    <p>Expert in congenital heart defects and pediatric cardiac interventions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Maria Garcia">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Maria Garcia</h3>
+                    <div class="position">Pediatric Neurologist</div>
+                    <p>Specializes in childhood epilepsy, developmental disorders, and neurological conditions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Michael Johnson">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Michael Johnson</h3>
+                    <div class="position">Pediatric Allergist</div>
+                    <p>Expert in childhood allergies, asthma, and immune system disorders.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>MediCare Hospital is a leading healthcare provider committed to delivering exceptional patient care with state-of-the-art facilities.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Doctors</a></li>
+                    <li><a href="#">Appointments</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Medical Drive, Health City</li>
+                    <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                    <li><i class="fas fa-envelope"></i> info@medicarehospital.com</li>
+                    <li><i class="fas fa-clock"></i> 24/7 Emergency Services</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 MediCare Hospital. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

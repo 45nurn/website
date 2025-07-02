@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatrics Services | LittleLife Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2d9cdb;
+            --primary-dark: #1a7bb9;
+            --primary-light: #56ccf2;
+            --secondary: #f2c94c;
+            --accent: #eb5757;
+            --light-bg: #f9fcff;
+            --light-blue: #e6f4ff;
+            --light-yellow: #fff9e6;
+            --light-green: #e6f7e9;
+            --header-bg: #005b96;
+            --nav-bg: #003d66;
+            --emergency: #e31837;
+            --text-dark: #2c3e50;
+            --text-light: #6c7a89;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Comic Neue', cursive;
+            color: var(--primary-dark);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: #7fcdff;
+        }
+        
+        .emergency-contact {
+            background-color: var(--emergency);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .emergency-contact i {
+            margin-right: 8px;
+        }
+        
+        /* Navigation Menu */
+        nav {
+            background-color: var(--nav-bg);
+        }
+        
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .menu-bar {
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu-bar li {
+            position: relative;
+        }
+        
+        .menu-bar li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .menu-bar li a:hover {
+            background-color: #0077cc;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            border-top: 3px solid #0077cc;
+        }
+        
+        .dropdown-menu li a {
+            color: #333;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-menu li a:hover {
+            background-color: #f0f7ff;
+            color: #005b96;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .menu-bar li a.active {
+            background-color: #0077cc;
+            border-bottom: 3px solid #7fcdff;
+        }
+        
+        /* Pediatrics Hero Section */
+        .pediatrics-hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1583524505974-6facd53f4591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumb a {
+            color: #7fcdff;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+            color: #ccc;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: var(--secondary);
+            color: #333;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(242, 201, 76, 0.4);
+        }
+        
+        .btn:hover {
+            background-color: #e6b325;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(242, 201, 76, 0.5);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.3);
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .floating-element:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 25%; right: 15%; animation-delay: 1s; }
+        .floating-element:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
+        .floating-element:nth-child(4) { top: 70%; right: 10%; animation-delay: 3s; }
+        .floating-element:nth-child(5) { top: 40%; left: 5%; animation-delay: 4s; }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        /* Pediatrics Services Section */
+        .services-section {
+            padding: 80px 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 30px auto 0;
+            font-size: 18px;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 3px solid var(--primary-light);
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+        
+        .service-icon {
+            position: absolute;
+            top: -25px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #333;
+            box-shadow: 0 4px 10px rgba(242, 201, 76, 0.5);
+            z-index: 2;
+        }
+        
+        .service-content {
+            padding: 40px 25px 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .service-content p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .service-content ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .service-content ul li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-content ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .service-content ul li i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 18px;
+            min-width: 24px;
+        }
+        
+        /* Pediatrics Team Section */
+        .team-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-blue), #d4e9ff);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-img {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .team-card:hover .team-img img {
+            transform: scale(1.05);
+        }
+        
+        .team-info {
+            padding: 25px;
+        }
+        
+        .team-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
+        
+        .team-info .position {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .team-info p {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Child-Friendly Features */
+        .features-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, var(--light-yellow), #ffefcc);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border: 2px solid #ffdf99;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card i {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            font-size: 24px;
+        }
+        
+        .feature-card p {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .testimonial-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .testimonial-container i {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 50px;
+            color: var(--secondary);
+            opacity: 0.7;
+        }
+        
+        .testimonial {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 22px;
+            line-height: 1.8;
+        }
+        
+        .patient {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        
+        .condition {
+            font-style: italic;
+            font-size: 16px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+        
+        /* Appointment Banner */
+        .appointment-banner {
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 70px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .appointment-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,0 50,100 100,100 L100,0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 100% 100%;
+            z-index: 1;
+        }
+        
+        .appointment-banner h2 {
+            font-size: 38px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .appointment-banner p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #003d66;
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 25px;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #7fcdff;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li i {
+            margin-right: 12px;
+            color: #7fcdff;
+            font-size: 18px;
+            min-width: 24px;
+        }
+        
+        .footer-column ul li a {
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #7fcdff;
+            padding-left: 5px;
+        }
+        
+        .social-links-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links-footer a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links-footer a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-bg-element {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            opacity: 0.1;
+            font-size: 200px;
+            z-index: 1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 40px;
+            }
+            
+            .service-card, .team-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+            
+            .menu-bar {
+                flex-direction: column;
+            }
+            
+            .menu-bar li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+            }
+            
+            .pediatrics-hero {
+                height: 450px;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .btn {
+                display: block;
+                width: 90%;
+                max-width: 300px;
+                margin: 15px auto;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .appointment-banner h2 {
+                font-size: 30px;
+            }
+            
+            .appointment-banner p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Emergency Contact -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/2969/2969398.png" alt="LittleLife Hospital Logo">
+                <div class="logo-text">Little<span>Life</span> Hospital</div>
+            </div>
+            <div class="emergency-contact">
+                <i class="fas fa-phone-alt"></i>
+                Emergency: (123) 456-7890
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu Bar -->
+      <nav>
+        <div class="nav-container">
+            <ul class="menu-bar">
+                <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active"><i class="fas fa-procedures"></i> Services <i class="fas fa-chevron-down"></i></a>
+                   <ul class="dropdown-menu">
+                        <li><a href="diology.html"><i class="fas fa-heartbeat"></i> Cardiology</a></li>
+                        <li><a href="nuirologyj.html"><i class="fas fa-brain"></i> Neurology</a></li>
+                        <li><a href="Orthopedics.html"><i class="fas fa-bone"></i> Orthopedics</a></li>
+                        <li><a href="Pediatrics.html"><i class="fas fa-baby"></i> Pediatrics</a></li>
+                        <li><a href="Ophthalmology.html"><i class="fas fa-eye"></i> Ophthalmology</a></li>
+                    </ul>
+                </li>
+                </li>
+                <li><a href="Doctors.html"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li><a href="appointment.html"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Pediatrics Hero Section -->
+    <section class="pediatrics-hero">
+        <div class="floating-elements">
+            <div class="floating-element"><i class="fas fa-heart"></i></div>
+            <div class="floating-element"><i class="fas fa-star"></i></div>
+            <div class="floating-element"><i class="fas fa-cloud"></i></div>
+            <div class="floating-element"><i class="fas fa-apple-alt"></i></div>
+            <div class="floating-element"><i class="fas fa-moon"></i></div>
+        </div>
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="#">Home</a>
+                <span>/</span>
+                <a href="#">Services</a>
+                <span>/</span>
+                <a href="#">Pediatrics</a>
+            </div>
+            <h1>Specialized Care for Your Little Ones</h1>
+            <p>Compassionate, child-centered healthcare in a warm and welcoming environment designed just for kids</p>
+            <a href="#" class="btn">Book an Appointment</a>
+            <a href="#" class="btn btn-outline">Meet Our Pediatricians</a>
+        </div>
+    </section>
+    
+    <!-- Pediatrics Services Section -->
+    <section class="services-section">
+        <div class="section-title">
+            <h2>Our Pediatric Services</h2>
+            <p>Comprehensive healthcare for children from birth through adolescence</p>
+        </div>
+        
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-baby"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Newborn & Infant Care</h3>
+                    <p>Specialized care for your newest family members during their critical first year</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Newborn screenings and assessments</li>
+                        <li><i class="fas fa-check"></i> Well-baby checkups</li>
+                        <li><i class="fas fa-check"></i> Breastfeeding support</li>
+                        <li><i class="fas fa-check"></i> Developmental milestone tracking</li>
+                        <li><i class="fas fa-check"></i> Vaccination schedules</li>
+                    </ul>
+                    <a href="#" class="btn" style="background-color: var(--primary); color: white;">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Well-Child Visits</h3>
+                    <p>Regular check-ups to monitor growth, development, and overall health</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Annual physical examinations</li>
+                        <li><i class="fas fa-check"></i> Growth and nutrition counseling</li>
+                        <li><i class="fas fa-check"></i> Immunizations and booster shots</li>
+                        <li><i class="fas fa-check"></i> Vision and hearing screenings</li>
+                        <li><i class="fas fa-check"></i> Behavioral and developmental assessments</li>
+                    </ul>
+                    <a href="#" class="btn" style="background-color: var(--primary); color: white;">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Pediatric Specialties</h3>
+                    <p>Expert care for complex childhood conditions across multiple specialties</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Pediatric cardiology</li>
+                        <li><i class="fas fa-check"></i> Pediatric neurology</li>
+                        <li><i class="fas fa-check"></i> Pediatric gastroenterology</li>
+                        <li><i class="fas fa-check"></i> Allergy and immunology</li>
+                        <li><i class="fas fa-check"></i> Pediatric endocrinology</li>
+                    </ul>
+                    <a href="#" class="btn" style="background-color: var(--primary); color: white;">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pediatrics Team Section -->
+    <section class="team-section">
+        <div class="section-title">
+            <h2>Our Pediatric Team</h2>
+            <p>Meet our compassionate pediatricians and child specialists</p>
+        </div>
+        
+        <div class="team-container">
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Jennifer Lee">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Jennifer Lee</h3>
+                    <div class="position">Chief Pediatrician</div>
+                    <p>Specializes in newborn care and developmental pediatrics with 15 years of experience.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Robert Davis">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Robert Davis</h3>
+                    <div class="position">Pediatric Cardiologist</div>
+                    <p>Expert in congenital heart defects and pediatric cardiac interventions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Maria Garcia">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Maria Garcia</h3>
+                    <div class="position">Pediatric Neurologist</div>
+                    <p>Specializes in childhood epilepsy, developmental disorders, and neurological conditions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Dr. Michael Johnson">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Michael Johnson</h3>
+                    <div class="position">Pediatric Allergist</div>
+                    <p>Expert in childhood allergies, asthma, and immune system disorders.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Child-Friendly Features Section -->
+    <section class="features-section">
+        <div class="section-title">
+            <h2>Child-Friendly Environment</h2>
+            <p>Our specialized pediatric facilities designed for comfort and healing</p>
+        </div>
+        
+        <div class="features-container">
+            <div class="feature-card">
+                <i class="fas fa-child"></i>
+                <h3>Play Therapy Areas</h3>
+                <p>Engaging play spaces designed to reduce anxiety and support emotional well-being during treatment.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Child Life Specialists</h3>
+                <p>Trained professionals who help children cope with medical experiences through play and education.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class="fas fa-home"></i>
+                <h3>Family-Centered Care</h3>
+                <p>Comfortable accommodations for parents to stay with their children throughout treatment.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonial-container">
+            <i class="fas fa-quote-left"></i>
+            <div class="testimonial">
+                <p>"The pediatric team at LittleLife Hospital has been amazing with our son. They explain everything in a way that makes him feel comfortable, and they're always patient and kind. We couldn't ask for better care for our child!"</p>
+                <div class="patient">- Sarah Thompson</div>
+                <div class="condition">Mother of 7-year-old patient</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Appointment Banner -->
+    <section class="appointment-banner">
+        <h2>Schedule Your Child's Health Checkup</h2>
+        <p>Ensure your child's healthy development with our expert pediatric care</p>
+        <a href="#" class="btn" style="background-color: var(--secondary); color: #333;">Book Appointment</a>
+        <a href="#" class="btn btn-outline">Contact Us</a>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bg-element">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About LittleLife</h3>
+                <p>LittleLife Hospital is a leading pediatric center committed to delivering exceptional child care with state-of-the-art facilities and compassionate specialists.</p>
+                <div class="social-links-footer">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#">Home</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#">Services</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#">Pediatrics Department</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#">Appointments</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="#">Patient Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 ChildCare Avenue, Medical District</li>
+                    <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> pediatrics@littlelifehospital.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+                    <li><i class="fas fa-calendar-check"></i> Saturday: 9:00 AM - 2:00 PM</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Emergency Contacts</h3>
+                <ul>
+                    <li><i class="fas fa-ambulance"></i> Pediatric Emergency: (555) 789-0123</li>
+                    <li><i class="fas fa-heartbeat"></i> After-Hours Care: (555) 234-5678</li>
+                    <li><i class="fas fa-calendar-alt"></i> 24/7 Emergency Department</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 LittleLife Hospital. All Rights Reserved. | Dedicated to Children's Health and Happiness</p>
+        </div>
+    </footer>
+</body>
+</html>

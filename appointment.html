@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiology Services | HeartCare Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9fbfe;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #005b96;
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: #7fcdff;
+        }
+        
+        .emergency-contact {
+            background-color: #e31837;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .emergency-contact i {
+            margin-right: 8px;
+        }
+        
+        /* Navigation Menu */
+        nav {
+            background-color: #003d66;
+        }
+        
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .menu-bar {
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu-bar li {
+            position: relative;
+        }
+        
+        .menu-bar li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .menu-bar li a:hover {
+            background-color: #0077cc;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            border-top: 3px solid #0077cc;
+        }
+        
+        .dropdown-menu li a {
+            color: #333;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-menu li a:hover {
+            background-color: #f0f7ff;
+            color: #005b96;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .menu-bar li a.active {
+            background-color: #0077cc;
+            border-bottom: 3px solid #7fcdff;
+        }
+            /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1353&q=80') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 30px 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 71, 161, 0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            color: white;
+            padding: 40px;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        /* Appointment Form */
+        .appointment-form {
+            flex: 2;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-title {
+            color: #0d47a1;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #2196f3;
+            border-radius: 2px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .form-col {
+            flex: 1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2196f3;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+        }
+        
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #2196f3, #0d47a1);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+        }
+        
+        /* Info Section */
+        .info-section {
+            flex: 1;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .info-card h3 {
+            color: #0d47a1;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            background: #e3f2fd;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2196f3;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .contact-text p {
+            color: #666;
+        }
+        
+        .department-list {
+            list-style: none;
+        }
+        
+        .department-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .department-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .department-list li i {
+            color: #2196f3;
+            margin-right: 10px;
+        }
+        
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .hours-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .hours-table td:last-child {
+            text-align: right;
+            font-weight: 500;
+            color: #2196f3;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0d47a1;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #2196f3;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #e3f2fd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #80deea;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                height: 300px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .hero {
+                height: 250px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Emergency Contact -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/2969/2969398.png" alt="HeartCare Hospital Logo">
+                <div class="logo-text">Heart<span>Care</span> Hospital</div>
+            </div>
+            <div class="emergency-contact">
+                <i class="fas fa-phone-alt"></i>
+                Emergency: (123) 456-7890
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu Bar -->
+    <nav>
+        <div class="nav-container">
+            <ul class="menu-bar">
+               <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active"><i class="fas fa-procedures"></i> Services <i class="fas fa-chevron-down"></i></a>
+                   <ul class="dropdown-menu">
+                        <li><a href="diology.html"><i class="fas fa-heartbeat"></i> Cardiology</a></li>
+                        <li><a href="nuirologyj.html"><i class="fas fa-brain"></i> Neurology</a></li>
+                        <li><a href="Orthopedics.html"><i class="fas fa-bone"></i> Orthopedics</a></li>
+                        <li><a href="Pediatrics.html"><i class="fas fa-baby"></i> Pediatrics</a></li>
+                        <li><a href="Ophthalmology.html"><i class="fas fa-eye"></i> Ophthalmology</a></li>
+                    </ul>
+                </li>
+                </li>
+                <li><a href="Doctors.html"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li><a href="appointment.html"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+     <!-- Hero Section -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Book Your Medical Appointment Online</h1>
+                <p>Experience hassle-free appointment booking with our trusted healthcare professionals. Your health is our priority.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Appointment Form -->
+        <section class="appointment-form">
+            <h2 class="form-title">Book an Appointment</h2>
+            <form id="appointmentForm">
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="dob">Date of Birth *</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="gender">Gender *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not">Prefer not to say</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="department">Department *</label>
+                            <select id="department" name="department" required>
+                                <option value="" disabled selected>Select Department</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="dermatology">Dermatology</option>
+                                <option value="ophthalmology">Ophthalmology</option>
+                                <option value="dentistry">Dentistry</option>
+                                <option value="gastroenterology">Gastroenterology</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="doctor">Preferred Doctor</label>
+                            <select id="doctor" name="doctor">
+                                <option value="" disabled selected>Select Doctor (Optional)</option>
+                                <option value="dr-smith">Dr. Sarah Smith</option>
+                                <option value="dr-johnson">Dr. Michael Johnson</option>
+                                <option value="dr-williams">Dr. Emily Williams</option>
+                                <option value="dr-brown">Dr. Robert Brown</option>
+                                <option value="dr-davis">Dr. Jennifer Davis</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="appointmentDate">Preferred Date *</label>
+                            <input type="date" id="appointmentDate" name="appointmentDate" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="appointmentTime">Preferred Time *</label>
+                            <select id="appointmentTime" name="appointmentTime" required>
+                                <option value="" disabled selected>Select Time</option>
+                                <option value="morning">Morning (9:00 AM - 11:00 AM)</option>
+                                <option value="afternoon">Afternoon (1:00 PM - 3:00 PM)</option>
+                                <option value="evening">Evening (4:00 PM - 6:00 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="insurance">Insurance Provider</label>
+                            <input type="text" id="insurance" name="insurance" placeholder="Insurance Company">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reason">Reason for Visit *</label>
+                    <textarea id="reason" name="reason" placeholder="Please describe your symptoms or reason for appointment..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Book Appointment</button>
+            </form>
+        </section>
+        
+        <!-- Information Section -->
+        <section class="info-section">
+            <div class="info-card">
+                <h3>Contact Information</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Hospital Address</h4>
+                            <p>123 Medical Avenue, Health City, HC 54321</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone Number</h4>
+                            <p>(123) 456-7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email Address</h4>
+                            <p>appointments@medicarehospital.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Emergency Contact</h4>
+                            <p>(123) 456-7899 (24/7)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3>Available Departments</h3>
+                <ul class="department-list">
+                    <li><i class="fas fa-heartbeat"></i> Cardiology</li>
+                    <li><i class="fas fa-brain"></i> Neurology</li>
+                    <li><i class="fas fa-bone"></i> Orthopedics</li>
+                    <li><i class="fas fa-baby"></i> Pediatrics</li>
+                    <li><i class="fas fa-allergies"></i> Dermatology</li>
+                    <li><i class="fas fa-eye"></i> Ophthalmology</li>
+                    <li><i class="fas fa-tooth"></i> Dentistry</li>
+                    <li><i class="fas fa-stomach"></i> Gastroenterology</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3>Working Hours</h3>
+                <table class="hours-table">
+                    <tr>
+                        <td>Monday - Friday</td>
+                        <td>8:00 AM - 8:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>9:00 AM - 5:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>10:00 AM - 3:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Emergency</td>
+                        <td>24/7</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>MediCare Hospital</h3>
+                <p>Providing exceptional healthcare services with compassion and advanced medical technology since 1995.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Medical Team</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Patient Testimonials</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> News & Updates</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Patient Care</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Patient Portal</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Billing & Insurance</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Medical Records</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Patient Resources</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container copyright">
+            <p>&copy; 2023 MediCare Hospital. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color:#f44336;"></i> for better healthcare</p>
+        </div>
+    </footer>
+
+</body>
+</html>

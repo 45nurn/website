@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Hospital | About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #0d5c75;
+            --secondary: #189ab4;
+            --accent: #75e6da;
+            --light: #d4f1f4;
+            --dark: #05445e;
+            --text: #333;
+            --emergency: #e63946;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+   /* Header Styles */
+        header {
+            background-color: #005b96;
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: #7fcdff;
+        }
+        
+        .emergency-contact {
+            background-color: #e31837;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .emergency-contact i {
+            margin-right: 8px;
+        } 
+          /* Navigation Menu */
+        nav {
+            background-color: #003d66;
+        }
+        
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .menu-bar {
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu-bar li {
+            position: relative;
+        }
+        
+        .menu-bar li a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .menu-bar li a:hover {
+            background-color: #0077cc;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            border-top: 3px solid #0077cc;
+        }
+        
+        .dropdown-menu li a {
+            color: #333;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-menu li a:hover {
+            background-color: #f0f7ff;
+            color: #005b96;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+  
+        
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(13, 92, 117, 0.85), rgba(24, 154, 180, 0.85)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .mission-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .mission-text {
+            flex: 1;
+        }
+
+        .mission-text h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .mission-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .mission-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .mission-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Values Section */
+        .values {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* History Section */
+        .history {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent);
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-content {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            transform: rotate(45deg);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -10px;
+            border-right: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+            border-left: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Leadership Section */
+        .leadership {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .leader-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .leader-img {
+            height: 250px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+
+        .leader-info {
+            padding: 1.5rem;
+        }
+
+        .leader-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-info .position {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .leader-info .quote {
+            font-style: italic;
+            color: var(--text);
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .leader-info .quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.3;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .stat-text {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .emergency-contact {
+                margin-top: 1rem;
+            }
+            
+            .mission-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: 20px;
+                top: 20px;
+                border: none;
+                border-left: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+        </head>
+<body>
+     <!-- Header with Logo and Emergency Contact -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/2969/2969398.png" alt="NeuroCare Hospital Logo">
+                <div class="logo-text">Neuro<span>Care</span> Hospital</div>
+            </div>
+            <div class="emergency-contact">
+                <i class="fas fa-phone-alt"></i>
+                Emergency: (123) 456-7890
+            </div>
+        </div>
+    </header>
+     <!-- Navigation Menu Bar -->
+    <nav>
+        <div class="nav-container">
+            <ul class="menu-bar">
+               <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active"><i class="fas fa-procedures"></i> Services <i class="fas fa-chevron-down"></i></a>
+                   <ul class="dropdown-menu">
+                        <li><a href="diology.html"><i class="fas fa-heartbeat"></i> Cardiology</a></li>
+                        <li><a href="nuirologyj.html"><i class="fas fa-brain"></i> Neurology</a></li>
+                        <li><a href="Orthopedics.html"><i class="fas fa-bone"></i> Orthopedics</a></li>
+                        <li><a href="Pediatrics.html"><i class="fas fa-baby"></i> Pediatrics</a></li>
+                        <li><a href="Ophthalmology.html"><i class="fas fa-eye"></i> Ophthalmology</a></li>
+                    </ul>
+                </li>
+                </li>
+                <li><a href="Doctors.html"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li><a href="appointment.html"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- History Section -->
+    <section class="history">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our History</h2>
+                <p>A journey of growth and service to our community</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1985</div>
+                        <h3>Foundation</h3>
+                        <p>MediCare Hospital was founded with 50 beds and a vision to provide quality healthcare to the growing community.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1995</div>
+                        <h3>First Expansion</h3>
+                        <p>Expanded to 150 beds and added specialized departments including cardiology and pediatrics.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2005</div>
+                        <h3>Advanced Technology</h3>
+                        <p>Implemented state-of-the-art medical technology including MRI and robotic surgery systems.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2012</div>
+                        <h3>New Cancer Center</h3>
+                        <p>Opened the region's most advanced cancer treatment center with comprehensive care services.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>Pandemic Response</h3>
+                        <p>Led the community response to COVID-19, establishing dedicated treatment facilities and vaccination centers.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Modernization Complete</h3>
+                        <p>Completed a $150 million modernization project, featuring a new emergency department and patient tower.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Leadership</h2>
+                <p>Experienced professionals guiding our institution</p>
+            </div>
+            
+            <div class="leaders-grid">
+                <div class="leader-card">
+                    <div class="leader-img">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="leader-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p class="position">Chief Executive Officer</p>
+                        <p class="quote">"Our patients are at the heart of everything we do. We're committed to providing care that exceeds expectations."</p>
+                        <p>MD, MBA | 25+ years experience</p>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-img">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="leader-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p class="position">Chief Medical Officer</p>
+                        <p class="quote">"Clinical excellence requires constant innovation and a commitment to evidence-based medicine."</p>
+                        <p>MD, FACP | 20+ years experience</p>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-img">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="leader-info">
+                        <h3>Lisa Thompson</h3>
+                        <p class="position">Chief Nursing Officer</p>
+                        <p class="quote">"Exceptional nursing care transforms the patient experience and drives positive outcomes."</p>
+                        <p>RN, MSN, NEA-BC | 30+ years experience</p>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-img">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="leader-info">
+                        <h3>Robert Williams</h3>
+                        <p class="position">Chief Financial Officer</p>
+                        <p class="quote">"Responsible stewardship of resources enables us to invest in the future of healthcare."</p>
+                        <p>MBA, CPA | Healthcare finance expert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>By The Numbers</h2>
+                <p>Our commitment to care in statistics</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">38+</div>
+                    <div class="stat-text">Years of Service</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">350+</div>
+                    <div class="stat-text">Expert Physicians</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">900+</div>
+                    <div class="stat-text">Dedicated Staff</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-text">Medical Specialties</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-text">Patient Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>MediCare Hospital</h3>
+                    <p>Providing compassionate, high-quality healthcare to our community since 1985.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Doctors</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Appointment</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Departments</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cardiology</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pediatrics</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Neurology</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Orthopedics</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Oncology</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Healthcare Ave, Medical City</li>
+                        <li><i class="fas fa-phone"></i> Main: (123) 456-7890</li>
+                        <li><i class="fas fa-phone"></i> Emergency: (123) 456-7891</li>
+                        <li><i class="fas fa-envelope"></i> info@medicarehospital.com</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Emergency Services</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 MediCare Hospital. All Rights Reserved. | Providing Quality Healthcare Since 1985</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
